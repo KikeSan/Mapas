@@ -1,0 +1,47 @@
+@mixin breakpoint($break){
+    @if $break == L {
+        @media(max-width: 1420px){
+            @content
+                }
+    }
+    @else if $break == M {
+        @media(max-width: 1200px){
+            @content
+                }
+    }
+    @else if $break == S {
+        @media(max-width: 990px){
+            @content
+                }
+    }
+    @else if $break == XS {
+        @media(max-width: 760px){
+            @content
+                }
+    }
+    @else{
+        @media($break) {
+            @content
+                }
+    }
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(../assets/bg.jpg);
+    background-size: cover;
+}
+.escenario{
+    width: 1280px;
+    height: 692px;
+    margin: 0 auto;
+    @include breakpoint(M){
+        width: 100%;
+        height: auto;
+        #myCanvas{
+            width: 100%;
+            height: auto;
+        }
+    }
+}

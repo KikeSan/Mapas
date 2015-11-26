@@ -116,8 +116,12 @@ $(document).ready(function(){
     ]);
     
     function cargando(event){
-        console.log('cargando... ' + event.progress)
+        console.log('cargando... ' + event.progress);
 
+        var loaderIMG = new createjs.Bitmap(path+"loader.png");
+        stage.addChild(loaderIMG);
+        loaderIMG.x = $(document).width() / 2;
+        loaderIMG.y = $(document).height() / 2;
         /*var porcentaje = event.progress * 100; 
         var almedio = $(document).height() / 2;
         var alcentro = $(document).width() / 2;

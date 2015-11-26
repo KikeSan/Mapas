@@ -327,4 +327,7 @@ $(document).ready(function(){
         stage.update();
     }
 })
+<<<<<<< HEAD
 
+=======
+>>>>>>> a5bd12eb0f39c7bb4b962229d200eb6861bf8881

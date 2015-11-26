@@ -99,6 +99,7 @@ $(document).ready(function(){
     
     var queue = new createjs.LoadQueue();
     queue.on("complete", handleComplete, this);
+    queue.on("progress", handleProgress, this);
     queue.loadManifest([
         {id: "mapa", src:path+"mapa.png"},
         {id: "avion", src:path+"avion.png"},
@@ -113,6 +114,19 @@ $(document).ready(function(){
         {id: "rutaAzul19", src:path+"ruta19.png"}
         
     ]);
+    
+    function cargando(event){
+        console.log('cargando... ' + event.progress)
+
+        /*var porcentaje = event.progress * 100; 
+        var almedio = $(document).height() / 2;
+        var alcentro = $(document).width() / 2;
+
+        $('.precarga').css('width',porcentaje+ '%');
+
+        $('.texto').html(Math.floor(porcentaje)+"%");
+        $('.texto').css('top',almedio+15);*/
+    }
     
     function handleComplete(event) {
         init();

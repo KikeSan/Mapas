@@ -96,7 +96,6 @@ $(document).ready(function(){
     stage.enableMouseOver(10);
     stage.mouseMoveOutside = true;
     
-    
     var queue = new createjs.LoadQueue();
     queue.on("complete", handleComplete, this);
     queue.on("progress", cargando, this);
@@ -117,24 +116,37 @@ $(document).ready(function(){
     
     function cargando(event){
         console.log('cargando... ' + event.progress);
+        
+        var porcentaje = event.progress * 100; 
+        
+        var almedio = $('.escenario').height() / 2;
+        var alcentro = $('.escenario').width() / 2;
 
-        var loaderIMG = new createjs.Bitmap(path+"loader.png");
-        stage.addChild(loaderIMG);
-        loaderIMG.x = $(document).width() / 2;
-        loaderIMG.y = $(document).height() / 2;
-        /*var porcentaje = event.progress * 100; 
-        var almedio = $(document).height() / 2;
-        var alcentro = $(document).width() / 2;
-
-        $('.precarga').css('width',porcentaje+ '%');
+        $('.precarga').css('width',(porcentaje/4*6)+ 'px');
 
         $('.texto').html(Math.floor(porcentaje)+"%");
-        $('.texto').css('top',almedio+15);*/
+        $('.texto').css('top',almedio+15);
+        
+        $('.cargaContainer').css('height',$('.escenario').height());
+        
+        
+        
+        /*if($widthDevice>anchoParaMobile){
+            $('.texto').css('left',(alcentro-180)+(porcentaje/4*6)+ 'px');
+        }*/
 
+//        $('#fullpage').css('display','none');
+        
 
     }
     
     function handleComplete(event) {
+        /*$('.preBase').css('display','none');
+        $('.precarga').css('display','none');
+        $('.texto').css('display','none');
+        $('.txtLoad').css('display','none');*/
+        $('.cargaContainer').remove();
+        
         init();
     }
 

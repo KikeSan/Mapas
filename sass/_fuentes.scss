@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'bree_peruregular';
+    src: url('../fonts/breeperu_regular-webfont.eot');
+    src: url('../fonts/breeperu_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/breeperu_regular-webfont.woff2') format('woff2'),
+         url('../fonts/breeperu_regular-webfont.woff') format('woff'),
+         url('../fonts/breeperu_regular-webfont.ttf') format('truetype'),
+         url('../fonts/breeperu_regular-webfont.svg#bree_peruregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: 'bree_peruregular';
+        src: url('../fonts/breeperu_regular-webfont.svg#bree_peruregular') format('svg');
+    }
+}
+
+
+@font-face {
+    font-family: 'bree_perubold';
+    src: url('../fonts/breeperu_bold-webfont.eot');
+    src: url('../fonts/breeperu_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/breeperu_bold-webfont.woff2') format('woff2'),
+         url('../fonts/breeperu_bold-webfont.woff') format('woff'),
+         url('../fonts/breeperu_bold-webfont.ttf') format('truetype'),
+         url('../fonts/breeperu_bold-webfont.svg#bree_perubold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: 'bree_perubold';
+        src: url('../fonts/breeperu_bold-webfont.svg#bree_perubold') format('svg');
+    }
+}
+
+@font-face {
+    font-family: 'bree_peru_ltlight';
+    src: url('../fonts/breeperu_light-webfont.eot');
+    src: url('../fonts/breeperu_light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/breeperu_light-webfont.woff2') format('woff2'),
+         url('../fonts/breeperu_light-webfont.woff') format('woff'),
+         url('../fonts/breeperu_light-webfont.ttf') format('truetype'),
+         url('../fonts/breeperu_light-webfont.svg#bree_peru_ltlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: 'bree_peru_ltlight';
+        src: url('../fonts/breeperu_light-webfont.svg#bree_peru_ltlight') format('svg');
+    }
+}

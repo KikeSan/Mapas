@@ -1,3 +1,9 @@
+@import "fuentes";
+//VARAIBLES;
+$light: 'bree_peru_ltlight';
+$regular: 'bree_peruregular';
+$bold: 'bree_perubold';
+/*Fin de Variables*/
 @mixin breakpoint($break){
     @if $break == L {
         @media(max-width: 1420px){
@@ -43,5 +49,52 @@ body{
             width: 100%;
             height: auto;
         }
+    }
+}
+
+.cargaContainer{
+    width: 100%;
+    display: block;
+    position: absolute;
+    .preBase{
+        width: 150px;
+        height: 4px;
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        margin-left: -75px;
+        margin-top: -2px;
+        background-color: #999;
+        border-radius: 2px;
+    }
+    .precarga{
+        width: 150px;
+        height: 4px;
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        margin-left: -75px;
+        margin-top: -2px;
+        background-color: #fff;
+        border-radius: 2px;
+    }
+    .texto{
+        font-family: $regular;
+        left: 50%;
+        top: 50% !important;
+        position: absolute;
+        margin-left: -15px;
+        margin-top: 12px;
+        color: #fff;
+    }
+    .txtLoad{
+        color: #fff;
+        font-family: $regular;
+        font-size: 20px;
+        left: 50%;
+        margin-left: -45px;
+        margin-top: -37px;
+        position: absolute;
+        top: 50% !important;
     }
 }

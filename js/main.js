@@ -20,8 +20,8 @@ $(document).ready(function(){
     var ruta8 = [7,8];
     var ruta9 = [9];
     var ruta10 = [10];
-    var ruta11 = [];
-    var ruta12 = [];
+    var ruta11 = [9,11];
+    var ruta12 = [12];
     var ruta13 = [10,13];
     var ruta14 = [12,11,14];
     var ruta15 = [15];
@@ -115,7 +115,7 @@ $(document).ready(function(){
     ]);
     
     function cargando(event){
-        console.log('cargando... ' + event.progress);
+//        console.log('cargando... ' + event.progress);
         
         var porcentaje = event.progress * 100; 
         
@@ -202,9 +202,9 @@ $(document).ready(function(){
             circulos[i].addEventListener("click", function(event){
                 pTempX = LimaX;
                 pTempY = LimaY;
-                if(event.target.id-3 == 3){
+//                if(event.target.id-3 == 3){
                     mueveAvion(event.target.id-3);
-                }
+//                }
                 stage.update();
                 
             });
@@ -231,6 +231,7 @@ $(document).ready(function(){
         conteHovers.removeChild(arguments);
     }
     function pintaPais(p) {
+        console.log("p:::: "+p);
         hoverPais = new createjs.Bitmap(queue.getResult("hover"+String(p)));
         conteHovers.addChild(hoverPais);
         hoverPais.x = hoverX[p];
@@ -250,6 +251,7 @@ $(document).ready(function(){
             conteHovers.removeAllChildren();
             conteRuta.removeAllChildren();
             stage.removeChild(flag);
+            stage.removeChild(escala);
         }catch(Error){
             
         }
@@ -275,8 +277,8 @@ $(document).ready(function(){
         avion.y = LimaY;
         function animate () {
             if(i<rutas[cual].length){
-                console.log('DistanciaX -> A: ' + avion.x + ' MEDIO: ' + (((pTempX+posX[rutas[cual][i]])/2)-Math.abs((posX[rutas[cual][i]]-pTempX))) + " B: " + posX[rutas[cual][i]]);
-                console.log('DistanciaY -> A: ' + avion.y + ' MEDIO: ' + (((pTempY+posY[rutas[cual][i]])/2)-Math.abs((posY[rutas[cual][i]]-pTempY))) + " B: " + posY[rutas[cual][i]]);
+//                console.log('DistanciaX -> A: ' + avion.x + ' MEDIO: ' + (((pTempX+posX[rutas[cual][i]])/2)-Math.abs((posX[rutas[cual][i]]-pTempX))) + " B: " + posX[rutas[cual][i]]);
+//                console.log('DistanciaY -> A: ' + avion.y + ' MEDIO: ' + (((pTempY+posY[rutas[cual][i]])/2)-Math.abs((posY[rutas[cual][i]]-pTempY))) + " B: " + posY[rutas[cual][i]]);
                 var vals = [];
                 if(Math.abs((posX[rutas[cual][i]]-pTempX))<Math.abs((posY[rutas[cual][i]]-pTempY))) {
                     vals = [
@@ -302,7 +304,8 @@ $(document).ready(function(){
 
                 pTempX = posX[rutas[cual][i]];
                 pTempY = posY[rutas[cual][i]];
-                TweenMax.delayedCall(2.5,muestraPais,[i]);
+                TweenMax.delayedCall(2.5,muestraPais,[rutas[cual][i]]);
+                console.log("ANIMA-->> "+rutas[cual][i]);
 
                 i++;
 
@@ -313,17 +316,25 @@ $(document).ready(function(){
         animate();
         
         function muestraPais (paisID) {
-            console.log("i:-> "+paisID);
-            escala = new createjs.Bitmap(queue.getResult("r4_e"+String(paisID)));
+            console.log("paisID:-> "+paisID);
+            escala = new createjs.Bitmap(queue.getResult("flag"+String(paisID)));
             stage.addChild(escala);
             escala.alpha = 0; escala.scaleX = 0.1; escala.scaleY = 0.1;
-            escala.x = posX[paisID]+15;
+//            escala.x = posX[paisID];
             escala.y = posY[paisID];
-            escala.regX = 0;
-            escala.regY = 65;
+            escala.regY = 35;
+            if(paisID>26) {
+                escala.x = posX[paisID]-10;
+                escala.regX = 322;    
+            }else{
+                escala.x = posX[paisID]+15;
+                escala.regX = 0;
+            }
             TweenMax.to(escala, 0.5, {scaleX:1, scaleY:1, alpha:1, ease:Expo.easeOut});
             
-            TweenMax.delayedCall(1,quitaPais);
+            if(i<rutas[cual].length){
+                TweenMax.delayedCall(1,quitaPais);
+            }
             
             function quitaPais () {
                 stage.removeChild(escala);
